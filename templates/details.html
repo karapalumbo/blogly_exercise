@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{user.first_name}} {{user.last_name}} Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    {% if user.image_url %}
+    <div>
+      <img
+        src="{{ user.image_url }}"
+        alt="{{ user.first_name }} {{ user.last_name}}"
+      />
+    </div>
+    {% endif %}
+
+    <div class="name">
+      <h1>{{ user.first_name}} {{ user.last_name }}</h1>
+    </div>
+
+    <br />
+    <form>
+      <button
+        class="btn btn-primary"
+        formaction="/users/{{ user.id }}/edit"
+        formmethod="GET"
+      >
+        Edit
+      </button>
+      <button
+        class="btn btn-danger"
+        formaction="/users/{{ user.id }}/delete"
+        formmethod="POST"
+      >
+        Delete
+      </button>
+    </form>
+  </body>
+</html>

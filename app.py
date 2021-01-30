@@ -18,8 +18,7 @@ db.create_all()
 
 
 @app.route('/')
-def list_users():
-
+def homepage():
     return redirect('/users')
 
 

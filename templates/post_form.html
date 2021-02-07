@@ -16,13 +16,28 @@
     <br />
 
     <form method="POST">
-      <label for="title">Title</label>
-      <br />
+      <label for="title">Title:</label>
       <input type="text" name="title" />
       <br />
-      <label for="content">Post Content:</label>
       <br />
+      <label for="content">Content:</label>
       <input type="text" name="content" />
+      <br />
+      <br />
+      <ul style="list-style: none">
+        {% for tag in tags %}
+        <li>
+          <input
+            type="checkbox"
+            id="{{ tag.id }}"
+            name="tags"
+            value="{{ tag.id }}"
+          />
+          <label for="{{ tag.id }}"></label>
+          {{ tag.name }}
+        </li>
+        {% endfor %}
+      </ul>
       <br />
       <a
         class="btn btn-outline-primary"
